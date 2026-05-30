@@ -1,0 +1,136 @@
+@use '@/app/_styles/helpers' as *;
+
+
+
+.content__right
+{
+            width: rem(870);
+            //height: rem(630);
+            padding-block: rem(40);
+            padding-inline: rem(80);
+            border-radius: rem(4);
+
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+            0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+            .title
+            {
+                font-size: rem(20);
+                font-weight: 500;
+                color: #DB4444;
+                margin-bottom: rem(16);
+            }
+
+            .inputs
+            {
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(24);
+
+                input{
+                    height: rem(50);
+                    background-color: #F5F5F5;
+                    border: none;
+                    border-radius: rem(4);
+                    padding-left: rem(16);
+
+                    .input-error
+                    {
+                        border: 1px solid red;
+                        border-radius: rem(4);
+                    }                 
+                } 
+
+                &__user
+                {
+                    .list
+                    {
+                        display: grid;
+                        grid-template-columns: auto auto;
+                        column-gap: rem(50);
+                        row-gap: rem(24);
+
+                        &-item
+                        {
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: rem(8);
+                            width: rem(320);
+                            height: rem(82);
+
+                            label{
+                                font-size: rem(16);
+                                font-weight: 500;
+                            }
+                            
+                            .label
+                            {
+                                display: flex;
+                                justify-content: space-between;
+
+                                .error
+                                {
+                                    color: red;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+
+                &__Passwords
+                {
+                    .Pass__title
+                    {
+                        font-size: rem(16);
+                        font-weight: 500;
+                        margin-bottom: rem(8);
+                    }
+
+                    .Pass__inputs
+                    {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: rem(16);
+
+                        .error
+                        {
+                            color: red;
+                        }
+                    }
+                }
+            }
+
+            .btn
+            {
+               display: flex;
+               justify-content: end;
+               margin-top: rem(24);
+               align-items: center;
+               column-gap: rem(32);
+
+               &__cancel
+               {
+                  background-color: white;
+                  font-size: rem(14);
+                  font-weight: 500;
+               }
+
+               &__submit
+               {
+                 background-color: #DB4444;
+                 border-radius: rem(4);
+                 padding-block: rem(16);
+                 padding-inline: rem(48);
+                 color: white;
+                 font-size: rem(16);
+                 font-weight: 500;
+                 transition: 0.3s ease;
+
+                 &:hover
+                 {
+                    background-color: #dd5858;
+                 }
+               }
+            }
+}

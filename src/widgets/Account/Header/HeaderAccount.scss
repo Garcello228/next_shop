@@ -1,0 +1,29 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.header__Account
+{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: rem(80);
+
+        .Account__путь
+        {
+            font-size: rem(14);
+            color: black;
+            font-weight: 500;
+
+            .span__путь{
+               color: rgb(139, 139, 139);
+            }
+        }
+
+        p{
+            font-weight: 500;
+            font-size: rem(14);
+
+            .span__name{
+                color: #DB4444;
+            }
+        }
+}

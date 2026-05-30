@@ -1,0 +1,110 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.Contact__admin
+{
+            width: rem(340);
+            height: rem(457);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 
+            0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            padding-inline: rem(35);
+            padding-top: rem(40);
+            padding-bottom: rem(51);
+
+            .admintel
+            {
+                height: rem(122);
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(24);
+
+                &__title
+                {
+                    display: flex;
+                    align-items: center;
+                    column-gap: rem(16);
+
+                    svg{
+                      width: rem(40);
+                      height: rem(40);
+                      
+                        rect{
+                         width: rem(40);
+                         height: rem(40);
+                         rx: rem(20);
+                         fill: #DB4444;
+                        }
+
+                        path{
+                            stroke: white;
+                            stroke-width: rem(1.5);
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                        }
+                    }
+                    
+                    h4{
+                        font-weight: 500;
+                    }
+                }
+
+                &__info
+                {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: rem(16);
+                    font-size: rem(14);
+                }
+            }
+
+            hr{
+                margin-block: rem(32);
+            }
+
+            .adminemail
+            {
+                height: rem(180);
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(24);
+
+                &__title
+                {
+                    
+                    display: flex;
+                    align-items: center;
+                    column-gap: rem(16);
+
+                    svg{
+                      width: rem(40);
+                      height: rem(40);
+                      
+                        rect{
+                         width: rem(40);
+                         height: rem(40);
+                         rx: rem(20);
+                         fill: #DB4444;
+                        }
+
+                        path{
+                            stroke: white;
+                            stroke-width: rem(1.5);
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                        }
+                    }
+                    
+                    h4{
+                        font-weight: 500;
+                    }
+                }
+
+                &__info
+                {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: rem(16);
+                    font-size: rem(14);
+                }
+            }
+}

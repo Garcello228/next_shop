@@ -1,0 +1,9 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.FlashSales__name
+{
+    display: flex;
+    column-gap: rem(87);
+    width: rem(600);
+}

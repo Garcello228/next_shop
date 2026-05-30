@@ -1,0 +1,501 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.prodyct__content
+{
+    width: rem(1190);
+    height: rem(335);
+    overflow: hidden;
+    display: flex;
+    padding-inline: rem(7);
+
+    .prodyct__list
+    {
+        margin-top: rem(10);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: rem(30);
+        row-gap: rem(60);
+
+        &:not(.prodyct__content-grid)
+        {
+            transition: transform 0.9s ease; 
+        }
+           
+        &-item
+        {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            row-gap: rem(16);
+            width: rem(270);
+            height: rem(332);
+            will-change: transform;
+            flex: 0 0 270px; 
+            flex-shrink: 0;
+            transition: transform 0.4s ease; 
+
+            &:hover
+            {
+                transform: scale(1.05);
+
+               
+            }
+
+            .image
+            {
+                width: rem(270);
+                height: rem(250);
+                position: relative;
+                background-color: #FAFAFA;
+                border-radius: rem(4);
+                overflow: hidden;
+
+                     
+                &__img
+                {
+                    margin: auto;
+                    margin-top: rem(20);
+                }
+
+                .клава
+                {
+                    margin-block: rem(70) !important;
+                }
+
+                &__info
+                {
+                    position: absolute;
+                    top: 0;
+                    width: rem(246);
+                    margin-top: rem(12);
+                    margin-inline: rem(12);
+                    z-index: 3;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .скидка
+                    {
+                        padding-block: rem(4);
+                        padding-inline: rem(12);
+                        text-align: center;
+                        background-color: #DB4444;
+                        color: white;
+                        border-radius: rem(4);
+                        font-size: rem(12);
+                        height: rem(26);
+                        display: block;
+                    }
+
+                    .notскидка
+                    {
+                        display: none !important;
+                    }
+
+                    .btns
+                    {
+
+                        .btn
+                        {
+                            background-color: #FAFAFA;
+                            width: rem(34) !important;
+                            height: rem(34) !important;                        
+                                        
+                            &__img
+                            {
+                                transition: filter 0.3s ease;
+                            }
+                            &__img:hover
+                            {
+                                filter: invert(1);
+                            }
+                        }
+
+                                
+                    }
+
+                }
+
+                &__infonot
+                {
+                    position: absolute;
+                    top: 0;
+                    margin-top: rem(12);
+                    z-index: 3;
+
+                    .notскидка
+                    {
+                        display: none !important;
+                    }
+
+                    .btns
+                    {
+        
+                        margin-left: rem(224);
+
+                        .btn
+                        {
+                            background-color: #FAFAFA;                        
+                                        
+                            &__img
+                            {
+                                transition: filter 0.3s ease;
+                            }
+                            &__img:hover
+                            {
+                                filter: invert(1);
+                            }
+                        }
+
+                                
+                    }
+
+                    .NEW
+                    {
+                        position: absolute;
+                        display: block;
+                        top: 0;
+                        left: 0;
+                        z-index: 5;
+                        margin-left: rem(12);
+                        background-color: #00FF66;
+                        color: white;
+                        width: rem(51);
+                        height: rem(26);
+                        border-radius: rem(4);
+                        padding-block: rem(4);
+                        padding-inline: rem(12);
+                        font-size: rem(12);
+                    }
+
+                    .notNEW
+                    {
+                        display: none;
+                    }
+                }
+
+                &__карзина
+                {
+                    position: absolute;
+                    bottom: 0;
+                    width: rem(270);
+                    height: rem(41);
+                    background-color: black;
+                    color: white;
+                    font-weight: 500;
+                    border-radius: 0 0 4px 4px;
+                       
+                    transition: all 0.3s ease;
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:hover
+                    {
+                        background-color: rgb(63, 63, 63);
+                    }
+
+                    .карзина__content
+                    {
+                       width: rem(104);
+                       height: rem(24);
+                       display: flex;
+                       align-items: center;
+                       column-gap: rem(8);
+
+                       p{
+                         font-size: rem(12);
+                         font-weight: 400;
+                       }
+                    }
+                }
+            }
+
+            .info
+            {
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(8);
+
+                &__title
+                {
+                    font-size: rem(16);
+                    font-weight: 500;
+                }
+
+                &__pcice
+                {
+                    display: flex;
+                    column-gap: rem(12);
+
+                    .pcice__скидка
+                    {
+                        font-weight: 500;
+                        color: #DB4444;
+                    }
+
+                    .pcice__пол
+                    {
+                        font-weight: 500;
+                        color: rgb(104, 104, 104);
+                        text-decoration: line-through;
+                    }
+                }
+
+                           
+            }
+        }
+    }
+        
+}
+
+.prodyct__content-grid
+{
+    min-height: rem(335) !important;
+
+    width: rem(1190);
+    min-height: rem(335);
+    overflow: hidden;
+    display: flex;
+    transition: all 2s ease; 
+   
+    padding-inline: rem(7);
+
+    .prodyct__list
+    {
+        margin-top: rem(10);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: rem(30);
+        row-gap: rem(60);
+            
+        transition: transform 0.4s ease; 
+           
+        &-item
+        {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            row-gap: rem(16);
+            width: rem(270);
+            height: rem(332);
+            will-change: transform;
+            flex: 0 0 270px; 
+            flex-shrink: 0;
+            transition: transform 0.4s ease; 
+
+            &:hover
+            {
+                transform: scale(1.05);
+
+               
+            }
+
+            .image
+            {
+                width: rem(270);
+                height: rem(250);
+                position: relative;
+                background-color: #FAFAFA;
+                border-radius: rem(4);
+                overflow: hidden;
+
+                     
+                &__img
+                {
+                    margin: auto;
+                    margin-top: rem(20);
+                }
+
+                .клава
+                {
+                    margin-block: rem(70) !important;
+                }
+
+                &__info
+                {
+                    position: absolute;
+                    top: 0;
+                    width: rem(246);
+                    margin-top: rem(12);
+                    margin-inline: rem(12);
+                    z-index: 3;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .скидка
+                    {
+                        padding-block: rem(4);
+                        padding-inline: rem(12);
+                        text-align: center;
+                        background-color: #DB4444;
+                        color: white;
+                        border-radius: rem(4);
+                        font-size: rem(12);
+                        height: rem(26);
+                        display: block;
+                    }
+
+                    .notскидка
+                    {
+                        display: none !important;
+                    }
+
+                    .btns
+                    {
+
+                        .btn
+                        {
+                            background-color: #FAFAFA;
+                            width: rem(34) !important;
+                            height: rem(34) !important;                        
+                                        
+                            &__img
+                            {
+                                transition: filter 0.3s ease;
+                            }
+                            &__img:hover
+                            {
+                                filter: invert(1);
+                            }
+                        }
+
+                                
+                    }
+
+                }
+
+                &__infonot
+                {
+                    position: absolute;
+                    top: 0;
+                    margin-top: rem(12);
+                    z-index: 3;
+
+                    .notскидка
+                    {
+                        display: none !important;
+                    }
+
+                    .btns
+                    {
+        
+                        margin-left: rem(224);
+
+                        .btn
+                        {
+                            background-color: #FAFAFA;                        
+                                        
+                            &__img
+                            {
+                                transition: filter 0.3s ease;
+                            }
+                            &__img:hover
+                            {
+                                filter: invert(1);
+                            }
+                        }
+
+                                
+                    }
+
+                    .NEW
+                    {
+                        position: absolute;
+                        display: block;
+                        top: 0;
+                        left: 0;
+                        z-index: 5;
+                        margin-left: rem(12);
+                        background-color: #00FF66;
+                        color: white;
+                        width: rem(51);
+                        height: rem(26);
+                        border-radius: rem(4);
+                        padding-block: rem(4);
+                        padding-inline: rem(12);
+                        font-size: rem(12);
+                    }
+
+                    .notNEW
+                    {
+                        display: none;
+                    }
+                }
+
+                &__карзина
+                {
+                    position: absolute;
+                    bottom: 0;
+                    width: rem(270);
+                    height: rem(41);
+                    background-color: black;
+                    color: white;
+                    font-weight: 500;
+                    border-radius: 0 0 4px 4px;
+                       
+                    transition: all 0.3s ease;
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &:hover
+                    {
+                        background-color: rgb(63, 63, 63);
+                    }
+
+                    .карзина__content
+                    {
+                       width: rem(104);
+                       height: rem(24);
+                       display: flex;
+                       align-items: center;
+                       column-gap: rem(8);
+
+                       p{
+                         font-size: rem(12);
+                         font-weight: 400;
+                       }
+                    }
+                }
+            }
+
+            .info
+            {
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(8);
+
+                &__title
+                {
+                    font-size: rem(16);
+                    font-weight: 500;
+                }
+
+                &__pcice
+                {
+                    display: flex;
+                    column-gap: rem(12);
+
+                    .pcice__скидка
+                    {
+                        font-weight: 500;
+                        color: #DB4444;
+                    }
+
+                    .pcice__пол
+                    {
+                        font-weight: 500;
+                        color: rgb(104, 104, 104);
+                        text-decoration: line-through;
+                    }
+                }
+
+                           
+            }
+        }
+    }
+}
+

@@ -1,0 +1,8 @@
+@use '@/app/_styles/helpers' as *;
+
+.About
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(140);
+}

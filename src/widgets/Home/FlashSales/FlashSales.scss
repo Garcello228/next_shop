@@ -1,0 +1,44 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.FlashSales
+{
+    margin-bottom: rem(60);
+
+    &__content
+    {
+       display: flex;
+       flex-direction: column;
+       row-gap: rem(40);
+       min-width: rem(1170);
+       min-height: rem(609);
+
+       .FlashSales__header
+       {
+         display: flex;
+         justify-content: space-between;
+         
+       }
+
+       
+
+       .cart__btn
+       {
+         width: rem(234);
+         height: rem(56);
+         display: flex;
+         margin-inline: auto;
+         margin-top: rem(20);
+         transition: all 0.3s ease;
+       }
+
+       .cart__btn-open
+       {
+          transition: all 0.3s ease;
+          height: rem(56);
+          display: flex;
+          margin-inline: auto;
+          margin-top: rem(20);
+       }
+    }
+}

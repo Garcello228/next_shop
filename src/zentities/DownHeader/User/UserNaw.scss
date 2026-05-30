@@ -1,0 +1,151 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.btn-user
+{
+                   
+                   position: relative;
+
+                   
+                    
+                   
+                   .btn
+                   {
+                     background-color: white;
+                     width: rem(32);
+                     height: rem(32);
+                     
+                     &:not(.clicked):hover
+                     {
+                       border-radius: 50%;
+                       background-color: #797979;
+                        
+                        svg{
+                         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+
+                        }
+                     }
+
+                     .tooltip {
+                      visibility: hidden;
+                      opacity: 0;
+                      transition: opacity 0.3s ease; /* Плавное появление */
+                      pointer-events: none; /* Чтобы подсказка не мешала кликам */
+                      position: absolute;
+                      left: 105%; /* Смещаем вправо от меню */
+                      top: 0;
+                      transform: translateY(-50%); /* Центрируем по вертикали */
+                      background-color: black;
+                      color: white;
+                      padding: rem(5);
+                     }
+
+                     &.can-show:not(.clicked):hover .tooltip
+                     {
+                        visibility: visible;
+                        opacity: 1;
+                     }
+
+                     .clicked
+                     {
+                       border-radius: none;
+                       background-color: white;
+
+                       img{
+                         filter: none;
+                       }
+                     }
+
+                     
+                   }
+
+                   .select
+                   {
+                     display: none;
+                   }
+
+                   .openUser
+                   {
+                     display: block;
+                     right: 0;
+                     z-index: 100;
+                     
+                     position: absolute;
+                     padding: rem(15);
+                     width: rem(224);
+                     height: rem(208);
+                     border-radius: rem(4);
+
+                      backdrop-filter: blur(15px);
+                      background: linear-gradient(
+                        135deg, 
+                        rgba(50, 50, 50, 0.7), 
+                        rgba(20, 20, 20, 0.8)
+                      );
+ 
+
+  
+
+
+                     .select-list
+                     {
+                       display: flex;
+                       flex-direction: column;
+                       row-gap: rem(13);
+                       color: white;
+
+                        .item
+                        {
+                          display: flex;
+                          align-items: center;
+                          column-gap: rem(16);
+                          font-size: rem(14);
+
+                          &__p
+                          {
+                            font-size: rem(14) !important;
+                          }
+                        }
+                        
+                        .itemProfil
+                        {
+                          display: flex;
+                          align-items: center;
+                          column-gap: rem(16);
+                          font-size: rem(14);
+                        }
+                        .item-btn
+                        {
+                          
+                          button
+                          {
+                            display: flex;
+                            align-items: center;
+                            
+                            column-gap: rem(16);
+                            font-size: rem(14);
+                            color: white;
+
+                            background: transparent; 
+                          }
+                        }
+                     }
+                   }
+
+                   
+}
+
+.UserOpenImg
+{
+  rect{
+    fill: #DB4444;
+  }
+
+  path{
+    stroke: white;
+    stroke-width: rem(1.5);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+

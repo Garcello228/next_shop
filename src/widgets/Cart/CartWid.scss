@@ -1,0 +1,38 @@
+@use '@/app/_styles/helpers' as *;
+
+.Cart
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(80);
+
+    &__header
+    {
+        font-size: rem(14);
+        span{
+            color: rgb(139, 139, 139);
+        }
+    }
+    
+
+}
+
+
+
+
+.h2
+{
+    font-weight: 400;
+    font-size: rem(16);
+}
+
+.Нету
+{
+    display: flex;
+    align-items: center;
+    margin-inline: auto;
+    margin-block: rem(200);
+    font-size: rem(32);
+}
+
+

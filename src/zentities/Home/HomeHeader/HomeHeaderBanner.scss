@@ -1,0 +1,160 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.right
+{
+            padding-top: rem(40);
+            padding-left: rem(45);
+
+            &__content
+            {
+                width: rem(892);
+                height: rem(344);
+               
+                .content
+                {
+                    width: rem(892);
+                    height: rem(344);
+                    overflow: hidden; /* Скрываем всё, что не влезло в эти 900px */
+                    position: relative;
+
+                    .advertising__list
+                    {
+                        display: flex;
+                        transition: transform 0.6s ease; /* Для плавной прокрутки потом */
+                       
+                        .advertising__item
+                        {
+                            width: rem(892);
+                            height: rem(344);
+                            background-color: black;
+                            position: relative;
+
+                            .advertising
+                            {
+                                width: rem(892);
+                                height: rem(344);
+                                display: flex;
+                                column-gap: rem(38);
+                                
+                                &__info
+                                {
+                                    color: white;
+                                    padding-top: rem(58);
+                                    padding-left: rem(64);
+                                    //width: rem(396);
+
+                                    .content
+                                    {
+                                        width: rem(294);
+                                        height: rem(239);
+                                        display: flex;
+                                        flex-direction: column;
+                                        row-gap: rem(21);
+                                       
+
+                                        .model
+                                        {
+                                            display: flex;
+                                            column-gap: rem(24);
+                                            align-items: center;
+                                           
+
+                                            p{
+                                                margin-top: rem(7);
+                                               
+                                                
+                                            }
+                                        }
+
+                                        .discount
+                                        {
+                                            h1{
+                                               font-family: "Inter";
+                                               font-size: rem(48);
+                                               font-weight: 600;
+                                               width: rem(294);
+                                               height: rem(120);
+                                               line-height: 130%;
+                                            }
+                                        }
+
+                                        .купить
+                                        {
+                                            cursor: pointer;
+                                            display: flex;
+                                            column-gap: rem(8);
+
+                                            a{
+                                                text-decoration: underline;
+                                                text-underline-offset: 8px;
+                                                text-decoration-thickness: 1px; /* ЖИРНОСТЬ линии */
+                                                text-decoration-color: rgb(172, 172, 172);  /* Цвет линии (опционально) */ 
+                                                font-weight: 500;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &__img
+                                {
+                                  
+                                  margin-top: rem(16);
+                                }
+                            }
+                        }
+                    }
+
+                    .pos-1 { transform: translateX(0); }
+                    .pos-2 { transform: translateX(-892px); }
+                    .pos-3 { transform: translateX(-1784px); }
+                    .pos-4 { transform: translateX(-2676px); }
+                    .pos-5 { transform: translateX(-3568px); }
+
+                    .flipping
+                    {
+                        z-index: 3;
+                        width: rem(120);
+                        height: rem(20);
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        bottom: 2%;
+                        left: 40%;
+                        //background-color: white;
+                        margin-inline: auto;
+
+                        &__list
+                        { 
+                            display: flex;
+                            column-gap: rem(12);
+
+                            .item
+                            {
+                                cursor: pointer; 
+                 
+                  
+                                svg{
+
+                                   transition: transform 0.3s ease; /* Для плавной прокрутки потом */ 
+                                    &:not(.active):hover
+                                    {
+                                      transform: scale(1.8);  
+                                    }
+                                    color: rgb(255, 255, 255);
+                                }
+                            }
+
+                            .active
+                            {
+                              transform: scale(1.8);
+                    
+                                circle {
+                                  fill: #DB4444 !important; 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+}

@@ -1,0 +1,159 @@
+@use '@/app/_styles/helpers' as *;
+
+.footer
+{
+    padding-top: rem(80);
+    background-color: black;
+    height: rem(440);
+    color: white;
+
+    &__list
+    {
+        display: flex;
+        column-gap: rem(87);
+
+        .item
+        {
+          width: rem(218);
+          display: flex;
+          flex-direction: column;
+
+            .первый{
+            
+              display: flex;
+              flex-direction: column;
+              row-gap: rem(24);
+              margin-bottom: rem(16);
+
+                
+            }
+
+            &__text
+            {
+             h4
+             {
+                margin: 0;
+                font-family: "Inter";
+                font-weight: 700;
+                font-size: rem(24);
+             }
+
+              h5
+              {
+                margin: 0;
+                font-size: rem(20);
+                font-weight: 500;
+              }
+
+              p
+              {
+                font-size: rem(16);
+              }
+            }
+           
+            &__input
+            {
+              position: relative;
+              display: flex;
+              align-items: center;
+
+              input
+              {
+               width: rem(217);
+               height: rem(48);
+                border-radius: rem(4);
+                background-color: #000000;
+                border: 2px solid white;
+                font-family: 'Poppins';
+                padding-right: rem(40);
+                padding-left: rem(5);
+                padding-top: 21px;
+                padding-bottom: 20px;
+                color: white;
+
+
+                &::placeholder
+                {
+                  color: rgb(83, 83, 83);
+                  
+                  padding-left: rem(10);
+                  font-size: rem(16);
+                     
+                  line-height: normal;
+                }
+                     
+                     
+
+                   
+              }
+                  
+              .Cam
+              {
+                position: absolute;
+                
+                background-repeat: no-repeat;
+                background-position: center; /* чтобы иконка была по центру */
+                background-size: contain;    /* чтобы иконка вписалась в размеры псевдоэлемента */
+                padding: 0;
+                @include square(24px);
+                border: none;
+                     
+                //top: 18%; 
+                right: 0;
+                margin-right: rem(15);
+                margin-left: rem(15);
+                display: inline-block;
+                
+                cursor: pointer
+              }
+            }
+
+            .основной
+            {
+              font-weight: 500;
+              font-size: rem(20);
+              margin-bottom: rem(24);
+            }
+
+            .p
+            {
+              display: flex;
+              flex-direction: column;
+              font-size: rem(18);
+              row-gap: rem(16);
+            }
+
+            .grid
+            {
+              margin-top: rem(8);
+              display: flex;
+              column-gap: rem(8);
+
+              .flex
+              {
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(4);
+              }
+             
+               
+            } 
+
+            .maseg
+            {
+              margin-top: rem(24);
+              display: flex;
+              column-gap: rem(24);
+            }
+
+            .last_p
+            {
+              font-size: rem(12);
+              font-weight: 500;
+              color: #808080;
+            }
+            
+           
+        }
+    }
+}
