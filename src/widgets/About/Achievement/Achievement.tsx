@@ -21,7 +21,6 @@ interface ItemProps extends AchievementData {
 
 
 const Item: FC<ItemProps> = memo(({ id, img: Icon, title, text, isActive, onSelect }) => {
-  console.log("Рендер дочер")
   return (
     <li 
       className={`list-item ${isActive ? "active" : ""}`} 
@@ -60,10 +59,6 @@ function Achievement() {
     setActiveId(id);
     localStorage.setItem("Achievement", String(id));
   }, []);
-
-  console.log("Рендер Родитель")
-
-    
 
     return(
         <section className="Achievement">

@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, FC } from "react"
+import { useState, FC, memo, useCallback } from "react"
+import { StaticImageData } from "next/image"
 import Image from 'next/image'
 import "./Person.scss"
 import one from "./icone&img/1.png"
@@ -12,29 +13,41 @@ import Lin from "./icone&img/Icon-Linkedin.svg"
 import Btn from "./icone&img/btn.svg"
 import Redbtn from "./icone&img/redbtn.svg"
 
-
+interface AchievementData {
+  id: number;
+}
 
 interface ItemBtns {
    id: number,
-   isOpen: number,
+   isActive: boolean,
    setisOpen(id : number): void
 }
 
-const ItemBtn : FC<ItemBtns> = ({id, isOpen, setisOpen}) => {
+interface PersonItemData {
+  id: number;
+  img: StaticImageData;     
+  name: string;     
+  jobtitle: string;
+}
 
-    const isActive = id === isOpen;
+
+
+const ItemBtn : FC<ItemBtns> = memo(({id, setisOpen, isActive}) => {
 
     const CurrentIcon = isActive ? Redbtn : Btn;
 
     return(
         <li className="item">
-            <CurrentIcon  className={`item__img ${isActive && `item__active`}`} alt="" onClick={() => {setisOpen(id); localStorage.setItem("btnlist", String(id))}} key={id}/>
+            <CurrentIcon  className={`item__img ${isActive && `item__active`}`} alt="" onClick={() => setisOpen(id)}/>
         </li>
     )
 
-}
+})
+ItemBtn.displayName = "Item"
 
-  const PersonMap = [
+
+
+const PersonMap = [
 {img: one, name: "Tom Cruise", jobtitle: "Founder & Chairman", id: 1},
 {img: two, name: "Emma Watson", jobtitle: "Managing Director", id: 2},
 {img: three, name: "Will Smith", jobtitle: "Product Designer" , id: 3},
@@ -50,7 +63,41 @@ const ItemBtn : FC<ItemBtns> = ({id, isOpen, setisOpen}) => {
 {img: one, name: "Tom Cruise5", jobtitle: "Founder & Chairman", id: 13},
 {img: two, name: "Emma Watson5", jobtitle: "Managing Director", id: 14},
 {img: three, name: "Will Smith5", jobtitle: "Product Designer", id: 15},
- ]
+]
+
+const ACHIEVEMENTS_LIST: AchievementData[] = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 },
+  { id: 4 },
+  { id: 5 },
+];
+
+function PersonItem({ item  } : { item :  PersonItemData})
+{
+    return(
+        <li className="list-item">
+            <Image src={item.img} alt="" />
+            <div className="info">
+                <div className="info__name">
+                  <h2 className="name">{item.name}</h2>
+                  <p className="jobtitle">{item.jobtitle}</p>
+                </div>
+                <div className="info__mes">
+                    <a href="">
+                       <Twiter alt="" />
+                    </a>
+                    <a href="">
+                       <Insta alt="" />
+                    </a>
+                    <a href="">
+                       <Lin alt="" />
+                    </a>
+                </div>
+            </div>
+        </li>
+   )
+}
 
 
 function Person()
@@ -62,6 +109,11 @@ function Person()
        return savedData ? Number(savedData) : three
    })
 
+    const handleSelect = useCallback((id: number) => {
+      setisOpen(id)
+      localStorage.setItem("btnlist", String(id))
+    }, []);
+
 
    
 
@@ -71,36 +123,15 @@ function Person()
             <div className="content">
              <ul className={`list pos-${isOpen}`}>
                 {PersonMap.map(item => (
-                 <li className="list-item" key={item.id}>
-                    <Image src={item.img} alt="" />
-                    <div className="info">
-                        <div className="info__name">
-                            <h2 className="name">{item.name}</h2>
-                            <p className="jobtitle">{item.jobtitle}</p>
-                        </div>
-                        <div className="info__mes">
-                            <a href="">
-                                <Twiter alt="" />
-                            </a>
-                            <a href="">
-                                <Insta alt="" />
-                            </a>
-                            <a href="">
-                                <Lin alt="" />
-                            </a>
-                        </div>
-                    </div>
-                 </li>
+                    <PersonItem item={item} key={item.id}/>
                 ))}
              </ul>
             </div>
             <div className="btn">
                 <ul className="btn__list">
-                    <ItemBtn id={1} isOpen={isOpen} setisOpen={setisOpen}  />
-                    <ItemBtn id={2} isOpen={isOpen} setisOpen={setisOpen} />
-                    <ItemBtn id={3} isOpen={isOpen} setisOpen={setisOpen} />
-                    <ItemBtn id={4} isOpen={isOpen} setisOpen={setisOpen} />
-                    <ItemBtn id={5} isOpen={isOpen} setisOpen={setisOpen} />
+                    {ACHIEVEMENTS_LIST.map((item) => (
+                        <ItemBtn id={item.id} setisOpen={handleSelect} key={item.id}  isActive={isOpen === item.id}/>
+                    ))}
                 </ul>
             </div>
         </div>

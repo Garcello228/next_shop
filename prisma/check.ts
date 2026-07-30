@@ -17,17 +17,9 @@ const prisma = new PrismaClient({ adapter })
 async function check() {
   try {
 
-    const userWithWishlist = await prisma.orders.findMany({
+    const userWithWishlist = await prisma.product.findMany({
       include: {
-        orderItems: {
-           include: {
-             product: {
-               include: {
-                 color: true
-               }
-             }
-           }
-        }
+        color: true
       }
     });
     
