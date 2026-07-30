@@ -1,0 +1,55 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.input
+{
+  display: flex;
+  margin-right: rem(24);
+  align-items: center;
+  position: relative;
+
+                  
+  input
+  {
+                   width: rem(243);
+                   height: rem(38);
+                   border-radius: rem(4);
+                   background-color: #F5F5F5;
+                   border: none;
+                   font-family: 'Poppins';
+                   padding-right: rem(40);
+                   padding-left: rem(5);
+                   padding-top: 20px;
+                   padding-bottom: 20px;
+
+
+                   &::placeholder
+                   {
+                     color: rgb(109, 109, 109);
+                     padding-bottom: rem(10);
+                     padding-left: rem(10);
+                     font-size: rem(12);
+                     
+                      line-height: normal;
+                   }
+                     
+                     
+
+                   
+  }
+                  
+                 .InputDowna
+                  {
+                      position: absolute;
+                      padding: 0;
+                      @include square(24px);
+                      border: none;
+                     
+                     //top: 18%; 
+                     right: 0;
+                     margin-right: rem(12);
+                     margin-left: rem(12);
+                     display: block;
+                     cursor: pointer;
+                  }
+}

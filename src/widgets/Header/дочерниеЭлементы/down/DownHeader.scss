@@ -1,0 +1,31 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.header__down
+    {
+        padding-top: rem(40);
+        //padding-left: rem(135);
+        padding-bottom: rem(16);
+        border-bottom: 1px solid #c0c0c0;
+
+        .navig
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title
+            {
+              font-family: 'Inter';
+              font-weight: 700;
+              font-size: rem(24);
+            }
+
+            &__input
+            {
+              display: flex;
+              align-items: center;
+            }
+
+        }
+    }

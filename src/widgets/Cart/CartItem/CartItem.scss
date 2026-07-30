@@ -1,0 +1,98 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.container__list-item
+{
+    width: rem(1170);
+    height: rem(102);
+    padding-inline: rem(40);
+    padding-block: rem(24);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: rem(4);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+    
+    .imgtitle
+    {
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: rem(20);
+        width: rem(280);
+        transition: all 0.3s ease;
+        .img
+        {
+            width: rem(54);
+            height: rem(54);
+            
+        }
+        .img-к
+        {
+            width: rem(70) !important;
+        }
+        .Remove
+        {
+            display: none !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: rem(18);
+            height: rem(18);
+            border-radius: 50%;
+            background-color: #DB4444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 3s ease;
+            &:hover {
+              display: flex;
+               transition: all 3s ease;
+            }
+            
+        }
+        &:hover {
+            .Remove {
+              display: flex !important;
+               transition: all 3s ease;
+            }
+        }
+               
+    }
+   
+    .Quantity
+    {
+        width: rem(80);
+        height: rem(44);
+        border-radius: rem(4);
+        border: 1px solid rgb(114, 114, 114);
+        padding-block: rem(6);
+        padding-inline: rem(12);
+        display: flex;
+        align-items: center;
+        column-gap: rem(16);
+        .Quantity__count
+        {
+            width: rem(20);
+        }
+        .Quantity__btns
+        {
+            display: flex;
+            flex-direction: column;
+            
+            .btns__btn
+            {
+                width: rem(16);
+                height: rem(16);
+                background-color: white;
+            }
+        }
+        
+    }
+    .Subtotal
+    {
+        width: rem(60);
+    }
+    
+}

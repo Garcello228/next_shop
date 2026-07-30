@@ -1,0 +1,54 @@
+import ContentPayment from './ContentPayment';
+import ContentData from './ContentData';
+import { IProductInCart } from '../../../next-auth';
+import { useState } from 'react';
+import "./CheckOutWingets.scss"
+
+
+interface ICartItems {
+  quantity: number;
+  id: number;
+  createdAt: Date;
+  userId: number;
+  productId: number;
+  product: IProductInCart;
+}
+
+
+interface IOrders {
+  CartItems: ICartItems[];
+  Discount: number;
+  Total: number;
+  Subtotal: number;
+}
+
+
+interface ICheckOutWingets {
+  orders : IOrders | null
+}
+
+function CheckOutWingets({orders} : ICheckOutWingets)
+{
+  const [Payment, setPayment] = useState(orders)
+  const [isOpen, setisOpen] = useState(1);
+  
+  return(
+      <section className='CheckOut container pading'>
+        <header className='CheckOut__header'>
+          <p> <span>Account / My Account / Product / View Cart /</span> CheckOut</p>
+        </header>
+        <main className='CheckOut__main'>
+          <h1 className='main__title'>Billing Details</h1>
+          <div className='main__content'>
+            <ContentData setPayment={setPayment} Payment={Payment} isOpen={isOpen}/>
+            <ContentPayment setPayment={setPayment} isOpen={isOpen} setisOpen={setisOpen} orders={orders}/>
+          </div>
+        </main>
+      </section>
+  )
+}
+
+export default CheckOutWingets
+  
+  
+  

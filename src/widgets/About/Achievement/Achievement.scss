@@ -1,0 +1,107 @@
+@use '@/app/_styles/helpers' as *;
+
+
+
+.Achievement
+{
+    display: flex;
+    justify-content: center;
+
+    &__content
+    {
+        min-width: rem(1170);
+        height: rem(230);
+
+        .list
+        {
+            display: flex;
+            column-gap: rem(30);
+
+            &-item
+            {
+                width: rem(270);
+                height: rem(230);
+                border: 1px solid #868686;
+                border-radius: rem(4);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer; /* Меняет стрелку на палец */
+                transition: transform 0.3s ease-in-out; 
+                transform: scale(1.001); 
+                will-change: transform;
+
+                .img{
+                    width: rem(80);
+                    height: rem(80);
+                    margin-bottom: rem(24);
+                }
+
+                
+               .img svg *:first-child {
+                 fill: #BDBDBD ; /* Тот самый серый с фото */
+                 stroke: none;             /* Убираем обводку, если она есть */
+                }
+
+               
+
+                .img [stroke], 
+                .img [fill]:last-child {
+                 stroke: #FFFFFF !important;   /* Белый контур */
+                 fill: #000000 !important;     /* Белая заливка (для тех частей, что не контур) */
+                 stroke-width: 2px !important;  /* Делаем жирнее (подбери число: 3px, 4px, 5px) */
+                }
+
+
+
+ 
+
+                
+
+
+                 h2{
+                    font-family: "Inter";
+                    font-size: rem(32);
+                    font-weight: 700;
+                   
+                }
+
+                &:hover
+                {
+                    transform: scale(1.05);  
+                }
+            }
+
+            .active
+            {
+                background-color: #DB4444;
+                color: white;
+                border: none;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Начальная тень */
+
+                &:hover
+                {
+                    background-color: #d85555 ;
+                }
+
+                .img svg circle:nth-of-type(2),
+                .img svg [fill]:nth-of-type(2) {
+                   fill: #F44336 !important; /* Насыщенный красный с фото */
+                }
+
+
+                .img [stroke] {
+                  stroke: #000000 !important;   /* Черный цвет линий */
+                  stroke-width: 2px !important;  /* Твоя жирность (размер линий) */
+                  fill: none !important;         /* Чтобы внутри доллара не было лишней заливки */
+                }
+
+
+
+
+
+            }
+        }
+    }
+}

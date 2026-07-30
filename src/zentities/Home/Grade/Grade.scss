@@ -1,0 +1,24 @@
+@use '@/app/_styles/helpers' as *;
+
+
+
+.stars
+{
+    &__list
+    {
+        display: flex;
+        column-gap: rem(5);
+        align-items: center;
+                                        
+        &-item
+        {
+            align-items: center;
+            width: rem(15);
+            height: rem(15);
+
+           
+        }
+    }
+}
+
+

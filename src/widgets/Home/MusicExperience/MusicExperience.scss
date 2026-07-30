@@ -1,0 +1,132 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.MusicExperience
+{
+    margin-top: rem(140);
+    margin-bottom: rem(71);
+
+    &__content
+    {
+        display: flex;
+        column-gap: rem(27);
+        align-items: center;
+        padding-inline: rem(44);
+        
+        width: rem(1170);
+        height: rem(500);
+        background-color: black;
+        color: white;
+
+        .info
+        {
+            width: rem(443);
+            height: rem(362);
+            display: flex;
+            flex-direction: column;
+            row-gap: rem(32);
+
+            &__над
+            {
+                font-weight: 600;
+                color: #00FF66;
+                height: rem(20);
+            }
+
+            &__title
+            {
+                font-family: "Inter";
+                font-size: rem(48);
+                font-weight: 600;
+                line-height: 130%;
+                height: rem(120);
+            }
+
+            &__time
+            {
+                width: rem(362);
+                height: rem(62);
+
+                .list
+                {
+                    display: flex;
+                    column-gap: rem(24);
+
+                    &-item
+                    {
+                        background-color: white;
+                        border-radius: 50%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: rem(62);
+                        height: rem(62);
+                        color: black;
+
+                        h4{
+                            font-weight: 600;
+                            font-size: rem(16);
+                            height: rem(18);
+                        }
+
+                        p{
+                            font-size: rem(11);
+                        }
+                    }
+                    
+                }
+            }
+
+            &__btn
+            {
+                margin-top: rem(8);
+                width: rem(171);
+                height: rem(56);
+                background-color: #00FF66;
+                color: white;
+                text-align: center;
+                font-size: rem(16);
+                font-weight: 500;
+                border-radius: rem(4);
+                transition: 0.3s ease;
+                
+
+                &:hover
+                {
+                    background-color: #37ff87;
+                }
+
+               
+
+                
+            }
+        }
+
+        .img
+        {
+            width: 100%;
+            width: rem(600);
+            height: rem(500);
+            
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: radial-gradient(
+             circle, 
+              #444444 0%,      /* Центр: достаточно светлый серый */
+               #1a1a1a 61%,     /* Плавное затухание */
+              #000000 90%,     /* На 75% уже должен быть чистый черный цвет фона */
+              #000000 100%     /* До самых краев блока остается черный */
+            );
+
+            &__кол
+            {
+                height: rem(420);
+            }
+            
+        }
+    }
+}

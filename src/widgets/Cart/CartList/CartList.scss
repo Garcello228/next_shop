@@ -1,0 +1,11 @@
+@use '@/app/_styles/helpers' as *;
+
+
+
+.container__list
+{
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(40);
+    
+}

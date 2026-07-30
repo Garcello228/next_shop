@@ -1,0 +1,526 @@
+@use '/src/App/styles/helpers' as *;
+
+.header
+{
+    
+    
+    &__up
+    {
+     font-size: rem(14);
+     background-color: black;
+     color: white;
+     height: rem(48);
+     max-width: 100%;
+     padding-block: rem(12);
+     display: flex;
+     
+     span
+     {
+        font-weight: 600;
+        text-decoration: underline;
+        margin-left: rem(8);
+     }
+
+     .title
+     {
+        margin-left: rem(640);
+        margin-right: rem(350);
+     }
+
+     
+
+        
+     
+        
+
+
+    }
+
+
+    &__down
+    {
+        padding-top: rem(40);
+        //padding-left: rem(135);
+        padding-bottom: rem(16);
+        border-bottom: 1px solid #c0c0c0;
+
+        .navig
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__title
+            {
+              font-family: 'Inter 18pt';
+              font-weight: 700;
+              font-size: rem(24);
+            }
+
+            &__navigation
+            {
+              
+
+              ul
+              {
+                display: flex;
+                column-gap: rem(48);
+
+                a
+                {
+                  font-size: rem(16);
+                  transition: 0.3s; // Плавность для ховера
+
+
+                    &:hover {
+                      text-decoration: underline;
+                      text-decoration-color: rgb(136, 136, 136);      /* Цвет линии */
+                      text-underline-offset: rem(5);      /* ОТСТУП линии от текста */
+                      text-decoration-thickness: 1px;  
+                    }
+                }
+
+                .isActive
+                {
+                 text-decoration: underline;
+                 text-decoration-color: rgb(136, 136, 136);      /* Цвет линии */
+                 text-underline-offset: rem(5);      /* ОТСТУП линии от текста */
+                 text-decoration-thickness: 1px;  /* Толщина линии */
+                }
+              }
+            }
+
+            &__input
+            {
+                display: flex;
+                align-items: center;
+
+                .input
+                {
+                  display: flex;
+                  position: relative;
+                  margin-right: rem(24);
+                  align-items: center;
+                  
+                 input
+                 {
+                   width: rem(243);
+                   height: rem(38);
+                   border-radius: rem(4);
+                   background-color: #F5F5F5;
+                   border: none;
+                   font-family: 'Poppins';
+                   padding-right: rem(40);
+                   padding-left: rem(5);
+                   padding-top: 20px;
+                   padding-bottom: 20px;
+
+
+                   &::placeholder
+                   {
+                     color: rgb(109, 109, 109);
+                     padding-bottom: rem(10);
+                     padding-left: rem(10);
+                     font-size: rem(12);
+                     
+                      line-height: normal;
+                   }
+                     
+                     
+
+                   
+                 }
+                  
+                 &::before
+                   {
+                      position: absolute;
+                      content: "";
+                      background: url("./icone/Component 2.svg") no-repeat;
+                      padding: 0;
+                      @include square(24px);
+                      border: none;
+                     
+                     //top: 18%; 
+                     right: 0;
+                     margin-right: rem(12);
+                     margin-left: rem(12);
+                     display: block;
+                   }
+                }
+
+                .icone
+                {
+                   display: flex;
+                   column-gap: rem(16);
+                   height: rem(32);
+
+                  &__Wishlist
+                  {
+                    position: relative;
+                    cursor: pointer;
+
+                    &:hover .tooltip
+                    {
+                      visibility: visible !important;
+                      opacity: 1 !important;
+                      //display: block;
+                    }
+
+                    .tooltip {
+                      visibility: hidden;
+                      opacity: 0;
+                      transition: opacity 0.3s ease; /* Плавное появление */
+                      pointer-events: none; /* Чтобы подсказка не мешала кликам */
+                      position: absolute;
+                      left: -50%;
+                      top: -60%;
+                      transform: translateY(-50%); /* Центрируем по вертикали */
+                      background-color: black;
+                      color: white;
+                      padding: rem(3);
+                      //display: none;
+                    }
+
+                    .Wishlist__count
+                    {
+                      display: none;
+                      position: absolute;
+                      width: rem(16);
+                      height: rem(16);
+                      border-radius: 50%;
+                      background-color: #DB4444;
+                      color: white;
+                      top: 0;
+                      right: 0;
+                      font-size: rem(12);
+                      text-align: center;
+                    }
+
+                    .Wishlist__count-true
+                    {
+                      display: block;
+                    }
+                  }
+
+                  &__Cart
+                  {
+                    position: relative;
+                    cursor: pointer;
+
+                    &:hover .Cart__tooltip
+                    {
+                      visibility: visible !important;
+                      opacity: 1 !important;
+                      //display: block;
+                    }
+
+                    .Cart__tooltip {
+                      visibility: hidden;
+                      opacity: 0;
+                      transition: opacity 0.3s ease; /* Плавное появление */
+                      pointer-events: none; /* Чтобы подсказка не мешала кликам */
+                      position: absolute;
+                      right: -30%;
+                      top: -60%;
+                      transform: translateY(-50%); /* Центрируем по вертикали */
+                      background-color: black;
+                      color: white;
+                      padding: rem(3);
+                      //display: none;
+                    }
+
+                    .Cart__count
+                    {
+                      display: none;
+                      position: absolute;
+                      width: rem(16);
+                      height: rem(16);
+                      border-radius: 50%;
+                      background-color: #DB4444;
+                      color: white;
+                      top: -10%;
+                      right: -20%;
+                      font-size: rem(12);
+                      text-align: center;
+                    }
+
+                    .Cart__count-true
+                    {
+                      display: block;
+                    }
+                  }
+
+
+                  .btn-user
+                  {
+                   
+                   position: relative;
+
+                   
+                    
+                   
+                   .btn
+                   {
+                     background-color: white;
+                     
+                     &:not(.clicked):hover
+                     {
+                       border-radius: 50%;
+                       background-color: #797979;
+                        
+                       img{
+                         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+                       }
+                     }
+
+                     .tooltip {
+                      visibility: hidden;
+                      opacity: 0;
+                      transition: opacity 0.3s ease; /* Плавное появление */
+                      pointer-events: none; /* Чтобы подсказка не мешала кликам */
+                      position: absolute;
+                      left: 105%; /* Смещаем вправо от меню */
+                      top: 0;
+                      transform: translateY(-50%); /* Центрируем по вертикали */
+                      background-color: black;
+                      color: white;
+                      padding: rem(5);
+                     }
+
+                     &.can-show:not(.clicked):hover .tooltip
+                     {
+                        visibility: visible;
+                        opacity: 1;
+                     }
+
+                     .clicked
+                     {
+                       border-radius: none;
+                       background-color: white;
+
+                       img{
+                         filter: none;
+                       }
+                     }
+
+                     
+                   }
+
+                   .select
+                   {
+                     display: none;
+                   }
+
+                   .openUser
+                   {
+                     display: block;
+                     right: 0;
+                     
+                     position: absolute;
+                     padding: rem(15);
+                     width: rem(224);
+                     height: rem(208);
+                     border-radius: rem(4);
+
+                      backdrop-filter: blur(15px);
+                      background: linear-gradient(
+                        135deg, 
+                        rgba(50, 50, 50, 0.7), 
+                        rgba(20, 20, 20, 0.8)
+                      );
+ 
+
+  
+
+
+                     .select-list
+                     {
+                       display: flex;
+                       flex-direction: column;
+                       row-gap: rem(13);
+                       color: white;
+
+                        .item
+                        {
+                          display: flex;
+                          align-items: center;
+                          column-gap: rem(16);
+                          font-size: rem(14);
+
+                          &__p
+                          {
+                            font-size: rem(14) !important;
+                          }
+                        }
+                        
+                        .itemProfil
+                        {
+                          display: flex;
+                          align-items: center;
+                          column-gap: rem(16);
+                          font-size: rem(14);
+                        }
+                        .item-btn
+                        {
+                          
+                          button
+                          {
+                            display: flex;
+                            align-items: center;
+                            
+                            column-gap: rem(16);
+                            font-size: rem(14);
+                            color: white;
+
+                            background: transparent; 
+                          }
+                        }
+                     }
+                   }
+
+                   
+                  }
+                }
+
+
+                
+            }
+        }
+    }
+    
+    
+
+    
+}
+
+
+.select
+{
+  width: 78px;
+  display: flex;
+  align-items: center;
+  background-color: black;
+
+  .custom-select {
+    position: relative;
+    margin-right: rem(5);
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background-color: black;
+
+    
+    .select-trigger {
+     background: #000000;
+     color: white;
+    }
+
+    .select-options {
+     color: white;
+     width: rem(70);
+     display: none; /* Скрываем по умолчанию */
+     position: absolute;
+     top: 100%;
+     left: 0;
+     right: 0;
+     background: rgb(0, 0, 0);
+     border: 1px solid #ccc;
+     z-index: 10;
+    }
+
+    .select-options {
+     display: block;
+    }
+    
+    .option {
+     padding: 10px;
+
+      &:hover
+      {
+        background: #797979;
+      }
+    }
+
+
+  
+  }
+
+  img
+  {
+    width: rem(24);
+    height: rem(24);
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .Вниз
+  {
+    transform: rotate(0);
+
+  }
+  
+  .Вверх
+  {
+    transform: rotate(180deg);
+  }
+
+}
+
+
+/* Скрыть верхнюю панель Google */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+}
+
+/* Скрыть сам виджет, если он появится */
+#google_translate_element {
+    display: none;
+}
+
+.my-dialog
+{
+  
+  max-height: none; 
+  border-radius: rem(10);
+  padding: rem(10);
+  height: rem(100);
+
+
+  .buttons
+  {
+
+    margin-top: rem(110);
+    display: flex;
+    justify-content: center;
+    column-gap: rem(40);
+
+    .remove
+    {
+      background-color: rgb(219, 7, 7);
+    }
+
+    .отмена
+    {
+      background-color: rgb(4, 163, 4);
+    }
+
+    button{
+      color: white;
+      padding: rem(5);
+      text-align: center;
+      width: rem(150);
+      height: rem(60);
+      font-size: rem(20);
+    }
+  }
+}
+dialog[open] {
+  display: flex; /* Это заставит его растянуться до заданной высоты */
+  flex-direction: column;
+  
+  /* Указываем высоту */
+  height: 300px; 
+  width: 500px;
+  
+  /* Сбрасываем стандартные ограничения браузера */
+  max-height: none; 
+}

@@ -1,0 +1,13 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.CartInfo__header
+{
+        
+        font-size: rem(14);
+        
+        span{
+            color: rgb(139, 139, 139);
+        }
+        
+}

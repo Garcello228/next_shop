@@ -1,0 +1,12 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.HomeHeader
+{
+    margin-bottom: rem(140);
+    &__content
+    {
+        display: flex;
+
+    }
+}

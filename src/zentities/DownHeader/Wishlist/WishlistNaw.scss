@@ -1,0 +1,50 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.icone__Wishlist
+{
+                    position: relative;
+                    cursor: pointer;
+
+                    &:hover .tooltip
+                    {
+                      visibility: visible !important;
+                      opacity: 1 !important;
+                      //display: block;
+                    }
+
+                    .tooltip {
+                      visibility: hidden;
+                      opacity: 0;
+                      transition: opacity 0.3s ease; /* Плавное появление */
+                      pointer-events: none; /* Чтобы подсказка не мешала кликам */
+                      position: absolute;
+                      left: -50%;
+                      top: -60%;
+                      transform: translateY(-50%); /* Центрируем по вертикали */
+                      background-color: black;
+                      color: white;
+                      padding: rem(3);
+                      //display: none;
+                    }
+
+                    .Wishlist__count
+                    {
+                      display: none;
+                      position: absolute;
+                      width: rem(16);
+                      height: rem(16);
+                      border-radius: 50%;
+                      background-color: #DB4444;
+                      color: white;
+                      top: 0;
+                      right: 0;
+                      font-size: rem(12);
+                      text-align: center;
+                    }
+
+                    .Wishlist__count-true
+                    {
+                      display: block;
+                    }
+}

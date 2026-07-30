@@ -1,0 +1,53 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.NotFound
+{
+    padding-top: rem(80);
+    padding-bottom: rem(140);
+    
+
+    &__header
+    {
+        font-size: rem(14);
+        
+        span{
+           color: rgb(139, 139, 139);
+        }
+    }
+
+    &__main
+    {
+        padding-top: rem(140);
+        display: flex;
+        justify-content: center;
+
+        .content
+        {
+            width: rem(800);
+            display: flex;
+            flex-direction: column;    // Элементы встанут друг под другом
+            align-items: center;       // Все элементы (h1, p, NavLink) встанут по центру
+            text-align: center;
+
+            &__title
+            {
+                font-family: "Inter";
+                font-weight: 500;
+                font-size: rem(110);
+                
+                margin-bottom: rem(40);
+            }
+
+           
+
+            &__btn
+            {
+                margin-top: rem(93);
+                width: rem(254);
+                height: rem(56);
+                margin-right: rem(15);
+            }
+        }
+    }
+}

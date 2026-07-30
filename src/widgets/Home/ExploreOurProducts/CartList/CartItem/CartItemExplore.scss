@@ -1,0 +1,258 @@
+@use '@/app/_styles/helpers' as *;
+
+
+.cart__list-item
+{
+                display: flex;
+                flex-direction: column;
+                row-gap: rem(16);
+                width: rem(270);
+                height: rem(332);
+                will-change: transform;
+                flex: 0 0 270px; 
+                flex-shrink: 0;
+                transition: transform 0.4s ease; 
+
+                &:hover
+                {
+                    transform: scale(1.05);
+
+                    .image__карзина
+                    {
+                        
+                        transform: translateY(0); /* Возвращаем на место (вверх) */
+                    }
+                }
+
+                .image
+                {
+                    width: rem(270);
+                    height: rem(250);
+                    position: relative;
+                    background-color: #FAFAFA;
+                    border-radius: rem(4);
+                    overflow: hidden;
+
+                     
+                    &__img
+                    {
+                        margin: auto;
+                        margin-block: rem(35);
+                    }
+
+                    .клава
+                    {
+                        margin-block: rem(70) !important;
+                    }
+
+                    &__info
+                    {
+                                position: absolute;
+                                top: 0;
+                                width: rem(246);
+                                margin-top: rem(12);
+                                margin-inline: rem(12);
+                                z-index: 3;
+                                display: flex;
+                                justify-content: space-between;
+
+                                .скидка
+                                {
+                                    padding-block: rem(4);
+                                    padding-inline: rem(12);
+                                    text-align: center;
+                                    background-color: #DB4444;
+                                    color: white;
+                                    border-radius: rem(4);
+                                    font-size: rem(12);
+                                    height: rem(26);
+                                    display: block;
+                                }
+
+                                .notскидка
+                                {
+                                    display: none !important;
+                                }
+
+                                .btns
+                                {
+                                    display: flex;
+                                    flex-direction: column;
+                                    row-gap: rem(8);
+
+                                    .btn
+                                    {
+                                        background-color: #FAFAFA;  
+                                        width: rem(34);
+                                        height: rem(34);
+                                        cursor: pointer;                      
+                                        
+                                        &__img
+                                        {
+                                          transition: filter 0.3s ease;
+                                          width: rem(34);
+                                          height: rem(34);
+                                        }
+                                        &__img:hover
+                                        {
+                                            filter: invert(1);
+                                        }
+                                        &__img:active
+                                        {
+                                           filter: red;
+                                        }
+
+                                    }
+
+                                
+                                }
+
+                    }
+
+                    &__infonot
+                    {
+                        position: absolute;
+                        top: 0;
+                        margin-top: rem(12);
+                        z-index: 3;
+
+                        .notскидка
+                        {
+                            display: none !important;
+                        }
+
+                        .btns
+                        {
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: rem(8);
+                            margin-left: rem(224);
+
+                            .btn
+                            {
+                                background-color: #FAFAFA; 
+                                cursor: pointer;                       
+                                        
+                                &__img
+                                {
+                                    transition: filter 0.3s ease;
+                                }
+                                &__img:hover
+                                {
+                                     filter: invert(1);
+                                }
+
+                                .tooltipWishlist
+                                {
+                                    display: none;
+                                }
+                            }
+
+                            .btn-add
+                            {
+                              background-color: #686868;
+                              transition: all 0.3s ease ;
+
+                                &:hover .tooltipWishlist{
+                                 position: absolute;
+                                 display: block;
+                                 top: -80%;
+                                 width: rem(150);
+                                 height: rem(35);
+                                 color: white;
+                                 background-color: #000000;
+                                 display: flex;
+                                 align-items: center;
+                                 justify-content: center;
+                                 font-size: rem(16);
+                                 transition: all 0.3s ease;
+                            
+                                }
+                            }
+
+
+                                
+                        }
+
+                        .NEW
+                        {
+                            position: absolute;
+                            display: block;
+                            top: 0;
+                            left: 0;
+                            z-index: 5;
+                            margin-left: rem(12);
+                            background-color: #00FF66;
+                            color: white;
+                            width: rem(51);
+                            height: rem(26);
+                            border-radius: rem(4);
+                            padding-block: rem(4);
+                            padding-inline: rem(12);
+                            font-size: rem(12);
+                        }
+
+                        .notNEW
+                        {
+                            display: none;
+                        }
+                    }
+
+                    &__карзина
+                    {
+                        position: absolute;
+                        bottom: 0;
+                        width: rem(270);
+                        height: rem(41);
+                        background-color: black;
+                        color: white;
+                        font-weight: 500;
+                        text-align: center;
+                        border-radius: 0 0 4px 4px;
+                       
+                        transform: translateY(100%); /* Уводим вниз на всю её высоту */
+                        transition: all 0.3s ease; /* Плавность перехода */
+
+                        &:hover
+                        {
+                            background-color: rgb(63, 63, 63);
+                        }
+                    }
+                }
+
+                .info
+                {
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: rem(8);
+
+
+
+                            &__additionally
+                            {
+                                display: flex;
+                                column-gap: rem(8);
+                                height: rem(24);
+                                align-items: center;
+
+                                .additionally__скидка
+                                {
+                                    font-weight: 500;
+                                    color: #DB4444;
+                                    margin-top: rem(3);
+                                }
+
+                                .additionally__reviews
+                                {
+                                    font-size: rem(14);
+                                    font-weight: 600;
+                                    color: rgb(104, 104, 104);
+                                }
+                            }
+                }
+}
+
+.cart__list-item-color
+{
+    height: rem(350);
+}
