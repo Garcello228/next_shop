@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 import styles from './UpHeader.module.scss'
-//import myLogo from './icone/DropDown.svg';
 import DropDownIcon from './icone/DropDown.svg';
-//import Image from "next/image";
 
 type langNames = 'English' | 'Русский';
 
