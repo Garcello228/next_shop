@@ -86,7 +86,7 @@ function CartItem({ item } : { item : IProduct})
     }
     
     return(
-        <li key={item.id} className="cart__list-item">
+        <li className="cart__list-item">
             <div className="image">
                 <Image src={item.img} alt=""  className={`image__img ${item.name.includes("AK-900 Wired Keyboard") ? "клава" : ""}`} width={190} height={180}/>
                 <div className={item.discount ? `image__info` : `image__infonot`}>

@@ -11,7 +11,6 @@ interface ICartList{
 
 function CartListFlash({offset, btnName, ref, discount} : ICartList)
 {
-  
 
     return(
         <div className="FlashSales__cart">

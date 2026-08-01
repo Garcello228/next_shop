@@ -2,9 +2,10 @@ import Stars from "./cart/Vector.svg"
 import Starsсер from "./cart/Vectorсер.svg"
 import Starsпол from "./cart/starполовина.svg"
 import "./Grade.scss"
+import { memo } from "react"
 
 
-const Grade =({ grade } : { grade : string}) => {
+const Grade = memo(({ grade } : { grade : string}) => {
 
   const starsArray = Array.from({ length: 5 }, (_, index) => {
     const starValue = index + 1;
@@ -33,6 +34,8 @@ const Grade =({ grade } : { grade : string}) => {
       </ul>
     </div>
   );
-}
+})
+
+Grade.displayName = "Item"
 
 export default Grade;

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useRouter } from 'next/navigation';
 import { useGetCartQuery } from "@/state/services/api"
 import { useGetWishlistQuery } from "@/state/services/api"
@@ -20,7 +20,7 @@ import "./CartItemBest.scss"
 import PostCart from "@/zshared/api/PostCart";
 
 
-function ProductItem ({ item }: { item : IProduct}) {
+function ProductItem({ item }: { item : IProduct}) {
     
     const [isOpen, setisOpen] = useState<number>(1);
     const { data: session } = useSession();
@@ -134,4 +134,4 @@ function ProductItem ({ item }: { item : IProduct}) {
     )
 }
 
-export default ProductItem
+export default memo(ProductItem)

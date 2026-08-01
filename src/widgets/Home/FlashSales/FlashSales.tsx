@@ -31,8 +31,8 @@ function FlashSales()
 
     function All()
     {
-        setbtnName(!btnName)
-        
+        setbtnName(prev => !prev)
+
         setTimeout(() => {
             if (ListRef.current) {
               ListRef.current.scrollIntoView({

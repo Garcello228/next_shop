@@ -5,6 +5,7 @@ import "./FlashSalesName.scss"
 
 function FlashSalesName()
 {
+    console.log("Рендер названия")
     return(
         <div className="FlashSales__name">
             <TitleHome подзаголовок="Today’s" title="Flash Sales"/>

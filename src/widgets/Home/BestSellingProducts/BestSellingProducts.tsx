@@ -12,13 +12,8 @@ function BestSellingProducts()
     const [btnAll, setbtnAll] = useState<boolean>(() => {
        
         if (typeof window !== "undefined") {
-            try {
-                const savedData = localStorage.getItem("btnAll");
-                return savedData ? JSON.parse(savedData) : false;
-            } catch (e) {
-                console.error("Ошибка парсинга localStorage", e);
-                return false;
-            }
+            const savedData = localStorage.getItem("btnAll");
+            return savedData ? JSON.parse(savedData) : false
         }
         return false;
     
