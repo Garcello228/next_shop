@@ -1,29 +1,27 @@
 import Plus from "./icone/plus.svg"
 import Minus from "./icone/minus.svg"
-import { useState } from "react"
+import { useState, memo } from "react"
 import "./Quantity.scss"
 
 
 interface IQuantity {
-    onSelect: (val : number) => void,
+    onSelect:  (feature : string, val : number) => void,
 }
 
 function Quantity({ onSelect } : IQuantity)
 {
-
-   console.log("Quantity")
    const [count, setcount] = useState(1);
 
    function countmin()
    {
       setcount((prev) => prev -= 1)
-      onSelect(count - 1)
+      onSelect("quantity", count + 1)
    }
 
    function countplus()
    {
       setcount((prev) => prev += 1)
-      onSelect(count + 1)
+      onSelect("quantity", count + 1)
    }
 
     return(
@@ -39,4 +37,4 @@ function Quantity({ onSelect } : IQuantity)
     )
 }
 
-export default Quantity
+export default memo(Quantity)

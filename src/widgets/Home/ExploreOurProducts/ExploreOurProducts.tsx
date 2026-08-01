@@ -16,13 +16,9 @@ function ExploreOurProducts()
     const [btnName, setbtnName] = useState(() => {
   
         if (typeof window !== "undefined") {
-            try {
-                const savedData = localStorage.getItem("btnExplore");
-                return savedData ? JSON.parse(savedData) : false;
-            } catch (e) {
-                console.error("Ошибка парсинга localStorage", e);
-                return false;
-            }
+           
+            const savedData = localStorage.getItem("btnExplore");
+            return savedData ? JSON.parse(savedData) : false;
         }
         return false;
     });

@@ -88,7 +88,7 @@ function ProductItem({ item }: { item : IProduct}) {
 
     function InfoID()
     {
-        router.push(`/product/${item.id}/details?color=${isOpen}`);
+        router.push(`/product/${item.id}?color=${isOpen}`);
     }
 
 

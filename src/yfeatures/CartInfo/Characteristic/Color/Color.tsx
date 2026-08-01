@@ -5,7 +5,7 @@ import "./Color.scss"
 
 
 interface IColor {
-    onSelect: (val : string) => void,
+    onSelect: (feature : string, val : string) => void,
     data: IProduct
 }
 
@@ -14,7 +14,7 @@ interface IColorBtn {
     isOpen : number,
     setisOpen: (id : number) => void,
     color : string,
-    onSelect: (val : string) => void,
+    onSelect: (feature : string, val : string) => void,
 }
 
 const ColorBtn =({id, isOpen, setisOpen, color, onSelect} : IColorBtn) => {
@@ -23,7 +23,7 @@ const ColorBtn =({id, isOpen, setisOpen, color, onSelect} : IColorBtn) => {
 
     const handleClick = () => {
         setisOpen(id);    
-        onSelect(color);  
+        onSelect("color", color);  
     };
     
     return(

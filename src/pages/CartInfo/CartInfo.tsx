@@ -12,50 +12,49 @@ import "./CartInfo.scss"
 
 function CartInfo()
 {
-   const params = useParams();
-   const id = params?.id
+  const params = useParams();
+  const id = params?.id
 
 
-   const [data, setdata] = useState<IProduct>();
-   console.log(data)
-   const [error, setError] = useState(false);
+  const [data, setdata] = useState<IProduct>();
+  const [error, setError] = useState(false);
    
-    useEffect(() => {
+  useEffect(() => {
 
-      if (!id) return; 
+    if (!id) return; 
 
-      const loadData = async () => {
-            try {
-               setError(false);
-               const  data = await GetProductId(id as string);
+    const loadData = async () => {
+      try {
+        setError(false);
+        const  data = await GetProductId(id as string);
 
-                if (Object.keys(data).length === 0) {
-                 setError(true);
-                } else {
-                 setdata(data);
-                }
-            } catch (error) {
-              console.error("Ой, ошибка при загрузке:", error);
-              setError(true);
-            }
-      };
+        if (Object.keys(data).length === 0) {
+            setError(true);
+        } else {
+          setdata(data);
+        }
+      } catch (error) {
+        console.error("Ой, ошибка при загрузке:", error);
+        setError(true);
+      }
+    };
                  
-      loadData()
-    },[id]);
+    loadData()
+  },[id]);
     
-    if (error) 
-    {
-        return(
-            <NotFound />
-        )
-    }
+  if (error) 
+  {
+    return(
+      <NotFound />
+    )
+  }
 
     if (!data) {
        return <h1>Загрузка данных товара...</h1>;
     }
     return(
        <section className='CartInfo container pading '>
-         <CartInfoHeader data={data}/>
+         <CartInfoHeader data={data.name}/>
          <CartInfoMain data={data}/>
        </section>
     )

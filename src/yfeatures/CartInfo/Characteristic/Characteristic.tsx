@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useGetWishlistQuery } from "@/state/services/api"
 import { useDispatch } from "react-redux";
 import { IProduct } from "@/state/services/api"
 import {  AddWishlist } from "@/state/Slice/counterSlice";
@@ -20,21 +21,22 @@ interface ICharacteristic {
 function Characteristic({data} : ICharacteristic)
 {
     const dispatch = useDispatch();
-    const { data: session, update } = useSession();
+    const { data: session } = useSession();
     const router = useRouter();
+    const { refetch: refetchWishlist } = useGetWishlistQuery();
 
     const [userSelection, setUserSelection] = useState({
      color: '', 
      size: 'M',
      quantity: 1
-    });
+    }); 
 
-    const handleFeatureChange = (feature : string, value : string | number) => {
+    const handleFeatureChange = useCallback((feature : string, value : string | number) => {
       setUserSelection(prev => ({
           ...prev,
           [feature]: value
       }));
-    };
+    }, []);
 
     function Buy()
     {
@@ -51,52 +53,42 @@ function Characteristic({data} : ICharacteristic)
         router.push('/CheckOut');
     }
 
-    
+
     async function Wishlist()
     {
         try
         { 
             if(session)
             {
-                const responce = await PostWishlist( session.user.id,  data.id )
-                if (responce && responce.item) {
-                  const currentWishlist = session?.user?.Wishlist || [];
-
-                    await update({
-                        updateType: "wishlist",
-                        user: {
-                         ...session?.user,
-                         Wishlist: [...currentWishlist, responce.item], 
-                       },
-                    });
-               }
-               dispatch(AddWishlist())
-               alert("Вы добавили товар в Wishlist")
-           } 
-           else
-           {
-              alert("Чтоб добвлять товары в Wishlist надо быть зарегистрированным ")
-           }
+              await PostWishlist( session.user.id,  data.id )
+              refetchWishlist();
+              dispatch(AddWishlist())
+              alert("Вы добавили товар в Wishlist")
+            } 
+            else
+            {
+               alert("Чтоб добвлять товары в Wishlist надо быть зарегистрированным ")
+            }
         }
         catch(err) {
-
-          if (err instanceof Error) {
-              if (err.message === "Этот товар вы уже добавляли") {
-                alert("Этот товар вы уже добавляли в Wishlist");
-              } else {
-                alert(err.message || "Произошла ошибка при добавлении");
-              }
-          }
-
-       }
+            if (err instanceof Error) {
+                if (err.message === "Этот товар вы уже добавляли") {
+                  alert("Этот товар вы уже добавляли в Wishlist");
+                } else {
+                   alert(err.message || "Произошла ошибка при добавлении");
+                }
+            }
+        }
     }
    
     return(
         <div className='delivery__characteristic'>
-            <Color onSelect={(val : string) => handleFeatureChange('color', val)} data={data}/>
-            <Size onSelect={(val : string) => handleFeatureChange('size', val)}/>
+            {data.color?.one && (
+              <Color onSelect={handleFeatureChange} data={data}/>
+            )}
+            <Size onSelect={handleFeatureChange}/>
             <div className='characteristic__buy'>
-                <Quantity onSelect={(val : number) => handleFeatureChange('quantity', val)}/>
+                <Quantity onSelect={handleFeatureChange}/>
                 <button className='buy__btn btn-red' onClick={Buy}>Buy Now</button>
                 <button className='buy__wis' onClick={Wishlist}>
                     <Wis />

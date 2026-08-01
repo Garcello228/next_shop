@@ -1,8 +1,8 @@
-import { IProduct } from "@/state/services/api"
+
 
 
 interface ICartInfoHeader {
-    data: IProduct
+    data: string
 }
 
 function CartInfoHeader({data} : ICartInfoHeader)
@@ -10,7 +10,7 @@ function CartInfoHeader({data} : ICartInfoHeader)
    
    return(
     <header className='CartInfo__header'>
-            <p> <span>Account / Gaming /</span> {data.name}</p>
+            <p> <span>Account / Gaming /</span> {data}</p>
     </header>
    )   
 }
