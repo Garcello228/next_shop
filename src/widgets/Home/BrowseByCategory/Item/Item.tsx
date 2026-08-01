@@ -1,24 +1,23 @@
-import {  ComponentType, SVGProps } from 'react';
+import {  ComponentType, memo, SVGProps } from 'react';
 
 interface IItem{
     id: number,
     Img: ComponentType<SVGProps<SVGSVGElement>>,
     ImgActive: ComponentType<SVGProps<SVGSVGElement>>,
     title: string,
-    activeId: number,
+    isActive: boolean,
     setActiveId: (id : number) => void
 }
 
-const Item = ({ id, Img, ImgActive, title, activeId, setActiveId } : IItem) => {
+const Item = memo(({ id, Img, ImgActive, title, isActive, setActiveId } : IItem) => {
     
-    const isActive = activeId === id;
     const CurentSvg = isActive ? ImgActive : Img
 
     function Onclik(id : number)
     {
        
 
-        if(activeId === id)
+        if(isActive)
         {
             setActiveId(0)
         }
@@ -33,6 +32,8 @@ const Item = ({ id, Img, ImgActive, title, activeId, setActiveId } : IItem) => {
             <h3 className="title">{title}</h3>
        </li>
     );
-};
+});
+
+Item.displayName = "Item"
 
 export default Item

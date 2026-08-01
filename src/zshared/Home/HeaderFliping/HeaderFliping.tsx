@@ -9,7 +9,6 @@ interface IHeaderFliping{
 
 function HeaderFliping({offset, setOffset} : IHeaderFliping)
 {
-
     const step = 200; 
 
     function left()

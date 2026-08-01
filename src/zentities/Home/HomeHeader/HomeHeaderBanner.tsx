@@ -27,7 +27,6 @@ interface ImageItemI {
 
 const ItemBtnn: FC<Btns> = memo(({id, isActive, setisOpen}) => {
 
-  console.log("Btn")
   const CurentSvg = isActive ? Redbtn : Btn
 
   return(

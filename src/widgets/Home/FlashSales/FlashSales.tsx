@@ -22,13 +22,9 @@ function FlashSales()
        
         if (typeof window === "undefined") return false;
     
-        try {
-            const savedData = localStorage.getItem("btnName");
-            return savedData ? JSON.parse(savedData) : false;
-        } catch (e) {
-            console.error("Ошибка парсинга localStorage", e);
-            return false;
-        }
+      
+        const savedData = localStorage.getItem("btnName");
+        return savedData ? JSON.parse(savedData) : false;
     
     });
         
